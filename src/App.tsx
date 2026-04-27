@@ -101,6 +101,7 @@ function Gallery() {
                 alt={art.title} 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
+                onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?auto=format&fit=crop&q=80&w=1200'; }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                 <span className="bg-white/20 text-white px-4 py-2 rounded-xl text-sm font-medium backdrop-blur-md shadow-sm w-max">View Artwork</span>
@@ -159,6 +160,7 @@ function ArtworkModal({ art, onClose }: { art: Artwork, onClose: () => void }) {
             src={art.imageUrl} 
             alt={art.title} 
             className="w-full h-full object-contain p-4 md:p-8 rounded-2xl"
+            onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?auto=format&fit=crop&q=80&w=1200'; }}
           />
         </div>
         <div className="w-full md:w-2/5 p-8 flex flex-col relative overflow-y-auto">
@@ -174,6 +176,21 @@ function ArtworkModal({ art, onClose }: { art: Artwork, onClose: () => void }) {
             <h2 className="text-3xl font-bold mb-4 text-slate-900">{art.title}</h2>
             <p className="text-slate-500 font-medium leading-relaxed mb-8">{art.description}</p>
             
+            <div className="flex items-center justify-between mb-8 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+              <div className="flex flex-col">
+                <span className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-1">Price</span>
+                <span className="text-2xl font-bold text-slate-900">{art.price ? `$${art.price}` : 'Upon Request'}</span>
+              </div>
+              <a 
+                href={`https://wa.me/+201040407170?text=${encodeURIComponent(`Hello! I'm interested in buying the artwork: ${art.title}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 bg-indigo-600 text-white rounded-xl font-semibold shadow-md shadow-indigo-200 hover:bg-indigo-700 transition-colors flex items-center gap-2"
+              >
+                Buy Original
+              </a>
+            </div>
+
             <div className="border-t border-slate-100 pt-6 mt-6">
               <button onClick={handleShare} className="flex items-center gap-2 text-sm font-semibold text-indigo-600 hover:text-indigo-700 uppercase tracking-wider mb-8 bg-indigo-50 px-4 py-2 rounded-xl w-max">
                 <Share2 size={16} /> Share this artwork
@@ -438,7 +455,7 @@ export default function App() {
     <div className="min-h-screen bg-[#fdfdfd] text-[#2d3436] flex flex-col overflow-x-hidden font-sans">
       <header className="h-20 border-b border-slate-100 flex items-center justify-between px-6 sm:px-12 sticky top-0 z-40 bg-white shadow-sm">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-bold italic text-xl shadow-lg shadow-indigo-100">MS</div>
+          <img src="/img-20260427-153009-357.jpg" alt="Logo" className="w-10 h-10 rounded-xl object-cover shadow-lg shadow-indigo-100 bg-indigo-100" onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=100'; }} />
           <h1 className="text-2xl font-semibold tracking-tight text-slate-900 hidden sm:block">
             Mohamed Sabry <span className="text-indigo-600">Art</span>
           </h1>
