@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+body {
+  background-color: #fdfdfd;
+  color: #2d3436;
+}
+
+/* Hide scrollbar for gallery horizontal scroll */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
