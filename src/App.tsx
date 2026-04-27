@@ -418,11 +418,14 @@ function Footer() {
           Online Now
         </span>
       </div>
-      <div>
+      <div className="flex flex-col items-center gap-2">
         <p>&copy; {new Date().getFullYear()} Mohamed Sabry Art.</p>
+        <a href="https://wa.me/+201040407170" target="_blank" rel="noopener noreferrer" className="text-xs hover:text-indigo-600 transition-colors">
+          Created by @a_elmosalamy
+        </a>
       </div>
       <div className="flex gap-6 uppercase tracking-widest text-xs">
-        <a href="#" className="hover:text-indigo-600 transition-colors">Instagram</a>
+        <a href="https://www.instagram.com/___sabry14?igsh=MXY0eTZ0cjJ4azc1dg==" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 transition-colors">Instagram</a>
         <a href="#" className="hover:text-indigo-600 transition-colors">Behance</a>
         <a href="#" className="hover:text-indigo-600 transition-colors">ArtStation</a>
       </div>
